@@ -1,0 +1,69 @@
+.bacroungPattern{
+    background-image:url("../../public/backround_pattern.png");
+    width: 100%;
+    height: 80vh;
+}
+.review{
+    position: relative;
+    margin: 10rem 2rem 0 2rem ;
+    background-image:linear-gradient(#5de1e6, #f5f4f4);
+    height: 50vh;
+    border-top-right-radius:50px ;
+    border-top-left-radius:50px ;
+}
+.dashboard{
+    position: absolute;
+    bottom: 0;
+    left: 8rem;
+    animation-name: rotateAnimation;
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-direction: alternate;
+    animation-timeline: scroll(block nearest);
+}
+@keyframes rotateAnimation {
+    from {
+        transform: scale(50%);
+               
+      }
+      to {
+
+        transform: scale(100%);
+      }
+    
+}
+/* slider */
+.sliding:hover{
+    animation: slidingRow 30s infinite linear ;
+}
+.sliding{
+    animation: slidingRow 20s infinite linear ;
+}
+@keyframes slidingRow {
+    from {
+        transform: translateX(0);
+               
+      }
+      to {
+
+        transform: translateX(-100%);
+      }
+    
+}
+/* slidingReverse */
+.slidingReverse:hover{
+    animation: slidingRevers 30s infinite linear ;
+}
+.slidingReverse{
+    animation: slidingRevers 20s infinite linear ;
+}
+@keyframes slidingRevers {
+    from {
+        transform: translateX(-100%);
+               
+      }
+      to {
+
+        transform: translateX(0);
+      }
+    
+}
