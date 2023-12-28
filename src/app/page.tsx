@@ -4,10 +4,17 @@ import styles from "./body.module.css"
 import MaxWithWrap from "./components/MaxWithWrapper/MaxWithWrap"
 import { HiArrowNarrowRight } from "react-icons/hi";
 import { IoMdCheckmark } from "react-icons/io";
+import Navbar from "./components/Header/Navbar";
+import Footer from "./components/Footer/Footer";
+
+
+
 export default function Home() {
   
   return (
+    
    <div>
+    <Navbar></Navbar>
     {/* Hero section started */}
     <MaxWithWrap>
       <div className={`${styles.bacroungPattern} text-center`}>
@@ -151,6 +158,7 @@ export default function Home() {
       </div>
       
     </section>
+    <Footer></Footer>
   </div>
   )
 }
