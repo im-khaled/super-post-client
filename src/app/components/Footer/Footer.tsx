@@ -4,10 +4,10 @@ import MaxWithWrap from "../MaxWithWrapper/MaxWithWrap";
 const Footer = () => {
     return (
         <div>
-            <div className=" bg-gray-50  pb-10">
+            <div className=" bg-gray-50 pb-10">
             <hr />
             <MaxWithWrap>
-              <div className="grid grid-cols-4 gap-5 my-20 relative">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 my-20 relative">
                   <div>
                     <h2 className="text-lg font-semibold pb-2">Product</h2>
                      <ul className="leading-8">

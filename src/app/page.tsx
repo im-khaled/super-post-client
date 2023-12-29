@@ -27,18 +27,18 @@ export default function Home() {
       
     </MaxWithWrap>
     {/* Reviews section started */}
-    <div className={`${styles.review}  h-20 `}>
-          <div className={`${styles.dashboard} flex justify-center mb-10`}>
+    <div className={`${styles.review}  h-20  `}>
+          <div className={`${styles.dashboard} flex justify-center max-md:-bottom-32 mb-10`}>
               <Image className="w-5/6 shadow-md" src={productImg} alt="product demo"></Image>
           </div>
     </div>
     <div className="text-center  bg-gray-50 mx-8 py-10">
             <h2 className="mt-10 text-4xl font-bold ">Loved by Professionals</h2>
             <MaxWithWrap>
-              <div className="grid grid-cols-3 gap-12 mt-20 text-xl relative">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 mt-20 text-xl relative">
                   <div className="bg-white p-8 shadow-md rounded-xl text-left">
                     <p>I love Superpost. The carousel feature is awesome. Life is so much easier! The customer service is outstanding. So personable. Thanks, guys.</p>
-                    <div className="mt-10 pt-5 flex justify-start absolute bottom-8">
+                    <div className="mt-10 pt-5 flex justify-start absolute max-lg:static bottom-8">
                         <img src="/user/ant.jpg" className="w-12 h-12 rounded-full" alt="user" />
                         <div className="ps-4">
                             <p>John Lohmer</p>
@@ -58,7 +58,7 @@ export default function Home() {
                   </div>
                   <div className="bg-white p-8 shadow-md rounded-xl text-left">
                     <p>My experience with Superpost has been amazing, I love the app and it is super polished. If you do Linkined business then it's a Green light!</p>
-                    <div className="mt-10 pt-5 flex justify-start absolute bottom-8">
+                    <div className="mt-10 pt-5 flex justify-start absolute max-lg:static bottom-8">
                         <img src="/user/projapoti.jpg" className="w-12 h-12 rounded-full" alt="user" />
                         <div className="ps-4">
                             <p>Max Miller</p>
@@ -146,10 +146,10 @@ export default function Home() {
       <div className={`${styles.grow}  mt-32 `}>
       <div className={` text-center`}>
         <div className="flex flex-col justify-center items-center pt-20 p-5">
-          <h1 className="text-6xl font-bold w-full text-center p-5">Grow on LinkedIn with Supergrow</h1>
-          <p className="text-xl w-5/6 text-center text-gray-600 py-5">row your personal brand on LinkedIn the simple, powerful, and affordable way with Supergrow. Hundreds of professionals and agencies trust Supergrow to save them time and help them grow their audience.</p> 
+          <h1 className="text-6xl max-sm:text-5xl font-bold w-full text-center p-5">Grow on LinkedIn with Superpost</h1>
+          <p className="text-xl w-5/6 text-center text-gray-600 py-5">Grow your personal brand on LinkedIn the simple, powerful, and affordable way with Superpost. Hundreds of professionals and agencies trust Superpost to save them time and help them grow their audience.</p> 
           <button className="p-4 mt-5 bg-main text-white font-semibold rounded-full inline-flex">Get started for free <span className="inline-flex text-2xl ms-2 px-px bg-gray-50 rounded-full text-main"><HiArrowNarrowRight/></span></button> 
-          <ul className="text-sm pt-5 pb-16 leading-10 flex justify-center">
+          <ul className="text-sm pt-5 pb-16 leading-10 max-sm:block flex justify-center">
              <li><span className="inline-block text-main"><IoMdCheckmark/></span> No credit card required</li>
             <li><span className="inline-block ms-5 text-main"><IoMdCheckmark/></span> 7-day free trial</li>
           </ul>

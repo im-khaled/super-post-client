@@ -7,6 +7,9 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { redirect, useRouter } from 'next/navigation'
 import { signIn } from "next-auth/react";
 import { useSession } from "next-auth/react";
+import Image from "next/image";
+import logo from '../../../../public/fabicon_super.ico';
+import { ReactNode, SyntheticEvent } from "react";
 
 
 const Login = () => {
@@ -62,7 +65,12 @@ const Login = () => {
     return (
         <div className='flex justify-center my-20'>
                 <div className='py-16 w-1/3 max-sm:w-3/4 max-lg:w-2/3'>
+                <div className="flex flex-col items-center">
+                    <a href="/" className=" text-2xl font-bold"><Image className="w-10 inline-block" src={logo} alt="logo of super post"/> Superpost</a>
+                    <h1 className="mt-10 text-4xl font-bold text-center"> Hey there, welcome back</h1>
+                </div>
                 <div className='  p-8 '>
+
                 <div className='pe-2 pt-5'>
                     <button onClick={()=>handleGithubLogin()} className='btn bg-[#4dc2df] px-4 py-2 text-white w-full rounded-full hover:bg-[#64c9e2]' ><span className="inline"><FaGithub/></span> Continue with Github</button>
                 </div>
@@ -95,8 +103,8 @@ const Login = () => {
                         </div>
                         
                     </form>
-                    <div className='pt-2'>
-                        <p>Don&apos;t have an account? <Link href='/signup'>SignUp</Link></p>
+                    <div className='pt-5'>
+                        <p className="text-center">Don&apos;t have an account? <Link className="text-main" href='/signup'>Sign Up</Link></p>
                     </div>
                    
                         

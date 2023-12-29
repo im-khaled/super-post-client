@@ -27,7 +27,7 @@ const Navbar = () => {
                     <li><a>Wall of Love</a></li>
                 </ul>
                 </div>
-                <a className="btn btn-ghost text-2xl font-bold"><Image className="w-10" src={logo} alt="logo of super post"/> Superpost</a>
+                <a href="/" className=" text-2xl font-bold"><Image className="w-10 inline-block" src={logo} alt="logo of super post"/> Superpost</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

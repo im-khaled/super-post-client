@@ -1,6 +1,16 @@
 import mongoose, { Schema, models } from "mongoose";
 
-const userSchema = new Schema({
+interface Iuser {
+    id: string,
+    email: string,
+}
+
+const userSchema = new Schema <Iuser>({
+    id:{
+        type: String,
+        required: true,
+        unique: true
+    },
     email: {
         type: String,
         required: true,

@@ -13,6 +13,7 @@ const Register = () => {
         loading,
         error,
       ] = useCreateUserWithEmailAndPassword(auth);
+      const router = useRouter();
     const {data: session} = useSession();
     if(session?.user){
         return redirect('/', )
@@ -39,7 +40,7 @@ const Register = () => {
             }
         }
         reset();
-        
+        router.push('/')
     }
     return (
         <div className='flex justify-center my-20'>
@@ -64,7 +65,7 @@ const Register = () => {
                                 }})} className='px-2 py-2 w-full border rounded-xl' type="password"placeholder='Enter Password' />
                                 {errors.password&& <p className='text-red-500'>Password is not correct</p>} 
                             </label>
-                            <button type="submit" className='btn bg-main px-4 py-2 w-full rounded-full text-center text-white hover:bg-blue-500'>SignUp</button>
+                            <button type="submit" className='btn bg-main px-4 py-2 w-full rounded-full text-center text-white hover:bg-blue-500'>Sign Up</button>
                         </div>
                         
                     </form>
