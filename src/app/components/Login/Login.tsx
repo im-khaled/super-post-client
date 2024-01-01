@@ -39,7 +39,7 @@ const Login = () => {
                 const res = await signIn("credentials", {
                  email,
                  redirect:true,
-                 callbackUrl: '/blog',
+                 callbackUrl: '/app',
                 })
                 
                 if(res?.error){
