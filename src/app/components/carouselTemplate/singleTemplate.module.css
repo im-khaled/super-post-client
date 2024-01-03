@@ -1,0 +1,12 @@
+/* .scrollControll:hover{
+   
+    animation: scrollX 5s linear;
+}
+@keyframes scrollX{
+    from{
+        transform: translateX(0);
+        }
+    to{
+        transform: translateX(-100%);
+    }
+} */
