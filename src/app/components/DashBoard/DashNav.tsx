@@ -6,7 +6,7 @@ import LoginBtn from "../LoginHandle/LoginBtn";
 
 const DashNav = () => {
     return (
-            <div className="fixed w-full top-0 z-50 bg-base-100 bg-opacity-95 border-b ">
+            <div className="fixed w-full top-0 z-50 bg-base-100  border-b ">
                     <div className="navbar ">
                             <div className="navbar-start ms-5">
                                 <a href="/" className=" text-2xl font-bold"><Image className="w-10 inline-block" src={logo} alt="logo of super post"/> Superpost</a>

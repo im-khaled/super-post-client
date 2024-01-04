@@ -12,7 +12,7 @@ const page = () => {
         details:'Here are viral posts for you. Use them as inspiration'
     }
     return (
-        <div className='mt-24 px-5 w-full'>
+        <div className='mt-24 w-full'>
             <ContentHeader text={header}></ContentHeader>
             <Insipiration></Insipiration>
         </div>

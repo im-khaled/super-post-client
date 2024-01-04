@@ -10,9 +10,11 @@ export default function AppLayout({
       <section>
         {/* Include shared UI here e.g. a header or sidebar */}
         <DashNav></DashNav>
-        <div className="flex justify-start items-start ">
-            <DashAside></DashAside>
+        <div className="grid grid-cols-5 relative ">
+            <div className="col-span-1 pe-5"><DashAside></DashAside></div>
+            <div className="col-span-4 px-5 ps-10">
             {children}
+            </div>
         </div>
         
       </section>

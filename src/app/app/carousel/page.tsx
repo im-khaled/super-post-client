@@ -2,7 +2,7 @@ import SignleTemplae from "@/app/components/carouselTemplate/SignleTemplae";
 
 const page = () => {
     return (
-        <div className="mt-24 px-5 w-full">
+        <div className="mt-24 w-full">
             <SignleTemplae></SignleTemplae>
         </div>
     );
