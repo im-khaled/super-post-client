@@ -2,15 +2,27 @@
 import { MdOutlinePostAdd } from "react-icons/md";
 import { AiOutlineCarryOut, AiOutlineFall, AiOutlineEdit,AiOutlineSolution, AiOutlineRise, AiOutlineBorder, AiOutlinePicLeft, AiOutlineAlert, AiOutlineSetting, AiOutlineLineChart } from "react-icons/ai";
 import Link from "next/link";
+import { useId, useState } from "react";
 
+let num = 0;
 const DashAside = () => {
+    const UniqId = useId();
+    const newId = 'XLmSlN'+UniqId.slice(1, -1)
+    const [id, setId]= useState(newId);
+
+    const GenerateId = ()=>{
+        
+        num = num + 1;
+        setId(newId+num);
+    }
+
     return (
-        <aside className="fixed  mt-24 border-r-2 ms-5 w-1/5 h-auto whitespace-nowrap" >
+        <aside className="md:fixed  mt-24 md:border-r-2 ms-5 md:w-1/5 h-auto whitespace-nowrap" >
                 <div className="sticky pb-5">
-                    <button className="px-10 py-2 bg-main text-white font-semibold rounded-full"><span className="inline-block me-2 font-semibold"><AiOutlineEdit /></span>Write Post</button>
+                   <Link href={`/app/write-post?post_id=${id}`}> <button onClick={()=>GenerateId()} className="px-10 py-2 bg-main text-white font-semibold rounded-full"><span className="inline-block me-2 font-semibold"><AiOutlineEdit /></span>Write Post</button></Link>
                 </div >
                 <div className="max-h-auto">
-                <ul className="space-y-8 overflow-y-scroll h-[25em]  py-5 font-medium ps-2  text-gray-600">
+                <ul className="space-y-8 md:overflow-y-scroll h-[25em] gird grid-cols-2  py-5 font-medium ps-2  text-gray-600">
                     <li><Link href='/app/ai'><span className="inline-block me-2 font-semibold"><AiOutlinePicLeft /></span>Post Generator</Link></li>
                     <li><Link href='/app/ideas'><span className="inline-block me-2 font-semibold"><AiOutlineAlert /></span>Ideas Generator</Link></li>
                     <li><Link href='/app/carousel'><span className="inline-block me-2 font-semibold"><AiOutlineBorder /></span>Carousel Maker</Link></li>

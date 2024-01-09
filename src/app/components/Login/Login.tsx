@@ -26,7 +26,7 @@ const Login = () => {
       ] = useSignInWithEmailAndPassword(auth);
 
     if(session?.user){
-        return redirect('/');
+        return redirect('/app');
     }
     const handleLogin = async (data:any, event:any) =>{
         event?.preventDefault();

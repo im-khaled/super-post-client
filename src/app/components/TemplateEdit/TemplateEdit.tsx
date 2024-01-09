@@ -1,28 +1,47 @@
 "use client"
-import { useState } from "react";
+import { ReactComponentElement, useEffect, useRef, useState } from "react";
+import { useReactToPrint } from 'react-to-print';
 import img from "../../../../public/fabicon_super.ico"
 import Image from "next/image";
+import style from "./Template.module.css";
 
 const Page = () => {
     // slide control state 
     const [slide, setSlide] = useState(1);
+    const combinedRef:any = useRef([])
+    const slideOneRef:any = useRef();
+     const slideTwoRef:any = useRef();
+    // const slideThreeRef:any = useRef();
+    
+    const pushRef = (el:any) => combinedRef.current.push(el);
+    
+    // useEffect(()=>{
+    //     combinedRef.current = {slideOneRef}
+    // // },[])
+    
+
+    const createPDF = useReactToPrint({
+        content: () => combinedRef.current[slide-1],
+        
+        
+    })
     // slide 1
-    const [heading, setHeading] = useState('');
-    const [hook, setHook] = useState('');
-    const [textColor, setTextColor] = useState('');
-    const [bgColor, setBgColor] = useState('');
+    const [heading, setHeading] = useState("Brain's Learning Process");
+    const [hook, setHook] = useState("The brain learns three steps: information, meaning, and emotion. Combine all three for effective learning.");
+    const [textColor, setTextColor] = useState("#fffafa");
+    const [bgColor, setBgColor] = useState("#1148ee");
     const [font, setFont] = useState('');
     // for slide 3
-    const [heading2, setHeading2] = useState('');
-    const [hook2, setHook2] = useState('');
-    const [textColor2, setTextColor2] = useState('');
-    const [bgColor2, setBgColor2] = useState('');
+    const [heading2, setHeading2] = useState("Three Steps");
+    const [hook2, setHook2] = useState("The brain learns three steps: information, meaning, and emotion. Combine all three for effective learning.");
+    const [textColor2, setTextColor2] = useState("#fffafa");
+    const [bgColor2, setBgColor2] = useState("#ff9800");
     const [font2, setFont2] = useState('');
     // for slide 3
-    const [heading3, setHeading3] = useState('');
-    const [hook3, setHook3] = useState('');
-    const [textColor3, setTextColor3] = useState('');
-    const [bgColor3, setBgColor3] = useState('');
+    const [heading3, setHeading3] = useState("Power of Visualization");
+    const [hook3, setHook3] = useState("Visualizing information makes it more memorable. Make your visualization vivid and engaging.");
+    const [textColor3, setTextColor3] = useState("#fffafa");
+    const [bgColor3, setBgColor3] = useState("#ef4444");
     const [font3, setFont3] = useState('');
 
     const handleSlide = (e:number) =>{
@@ -31,9 +50,9 @@ const Page = () => {
     }
     
     return (
-        <div className="mt-24 w-full px-5">
+        <div className={`mt-24 w-full px-5 `}>
             
-            <div className="flex w-full  justify-center my-5">
+            <div className="md:flex w-full  justify-center my-5">
                 <div className="w-64 border p-3">
                     <p>Background</p>
                     <div className="flex justify-between w-full list-none py-2">
@@ -157,10 +176,11 @@ const Page = () => {
                             <option value="Bona Nova">Bona Nova</option>
                         </select>
                     </div>
+                    <button onClick={createPDF} className="px-4 py-2 mt-4 rounded-full w-full text-white bg-main hover:bg-blue-500">Save</button>
                 </div>
-                <div className="carousel w-2/3 h-[25rem]">
-                    <div id="item1" className="carousel-item w-full">
-                        <div className="flex-1 w-1/2 min-w-0 pt-3  pb-6 pl-3 pr-6 shrink-0">
+                <div ref={slideOneRef}  className={`carousel w-2/3 max-md:w-full h-[25rem]`}>
+                    <div id="item1" className="carousel-item max-md:block w-full">
+                        <div className="flex-1 w-1/2 max-md:w-full min-w-0 pt-3  pb-6 pl-3 pr-6 shrink-0">
                             <div className="flex items-center group justify-between gap-4">
                                 <p title="slide 1" className="flex-1 text-sm font-semibold tracking-widest  text-gray-500">SLIDE 1</p>
                                 {/* <p className="bg-black text-white scale-0 group-hover:scale-100">Slide 1</p> */}
@@ -183,7 +203,7 @@ const Page = () => {
                             </div>
                         </div>
 
-                        <div className="w-1/2 h-auto relative bg-red-500 p-5 caroselBody">
+                        <div className="w-1/2 max-md:w-full h-auto m-2 min-h-80 relative bg-red-500 p-5 caroselBody " ref={pushRef}>
                             <h1 className= "title text-4xl font-bold">{`${heading}`}</h1>
                             <h3 className="hook text-lg font-semibold py-5">{`${hook}`}</h3>
                             <div className="absolute inset-x-0  bottom-5 border bg-white rounded-full mx-5 flex justify-center items-center">
@@ -219,11 +239,11 @@ const Page = () => {
                             `}</style>
                         </div>
                     </div>
-                    <div id="item2" className="carousel-item w-full">
-                        <div className="flex-1 w-1/2 min-w-0 pt-3 pb-6 pl-3 pr-6 shrink-0">
-                            <div className="flex items-center justify-between gap-4">
+                    <div id="item2" className="carousel-item max-md:block w-full">
+                        <div className="md:flex-1 md:w-1/2 w-full block min-w-0 pt-3 pb-6 pl-3 pr-6 shrink-0">
+                            <div className="flex items-center  justify-between gap-4">
                                 <p className="flex-1 text-sm font-semibold tracking-widest text-gray-500">SLIDE 2</p>
-                                <div className="flex items-center justify-start gap-1 -ml-2"></div></div>
+                                </div>
                                 <div className="mt-5 space-y-6"><div className="mt-5 space-y-6"><div>
                                     <label className="block text-sm font-medium leading-6 text-gray-900">Title</label>
                                     <div className="mt-1.5">
@@ -242,7 +262,7 @@ const Page = () => {
                             </div>
                         </div>
 
-                        <div className="w-1/2 h-auto relative bg-red-500 p-5 caroselBody">
+                        <div className="md:w-1/2 h-auto w-full block m-2 min-h-80 relative bg-red-500 p-5 caroselBody" ref={pushRef}>
                             <h1 className= "title text-3xl font-bold">{`${heading2}`}</h1>
                             <h3 className="hook text-lg font-semibold py-5">{`${hook2}`}</h3>
                             <div className="absolute inset-x-0  bottom-5 border bg-white rounded-full mx-5 flex justify-center items-center">
@@ -277,8 +297,8 @@ const Page = () => {
                             `}</style>
                         </div>
                     </div>
-                    <div id="item3" className="carousel-item w-full">
-                        <div className="flex-1 w-1/2 min-w-0 pt-3 pb-6 pl-3 pr-6 shrink-0">
+                    <div id="item3" className="carousel-item max-md:block w-full">
+                        <div className="flex-1 w-1/2 max-md:w-full min-w-0 pt-3 pb-6 pl-3 pr-6 shrink-0">
                             <div className="flex items-center justify-between gap-4">
                                 <p className="flex-1 text-sm font-semibold tracking-widest text-gray-500" >SLIDE 3</p>
                                 <div className="flex items-center justify-start gap-1 -ml-2"></div></div>
@@ -300,7 +320,7 @@ const Page = () => {
                             </div>
                         </div>
 
-                        <div className="w-1/2 h-auto relative bg-red-500 p-5 caroselBody">
+                        <div className="w-1/2 max-md:w-full h-auto m-2 min-h-80 relative bg-red-500 p-5 caroselBody" ref={pushRef}>
                             <h1 className= "title text-3xl font-bold">{`${heading3}`}</h1>
                             <h3 className="hook text-lg font-semibold py-5">{`${hook3}`}</h3>
                             <div className="absolute inset-x-0  bottom-5 border bg-white rounded-full mx-5 flex justify-center items-center">

@@ -1,9 +1,9 @@
-import Blog from "../components/Blog/Blog";
+import WritePost from "@/app/components/Post/WritePost";
 
 const page = () => {
     return (
         <div>
-            <Blog></Blog>
+            <WritePost></WritePost>
         </div>
     );
 };

@@ -1,12 +1,23 @@
-/* .scrollControll:hover{
-   
-    animation: scrollX 5s linear;
+
+.custom{
+    width: 260px;
+    display: flex; 
 }
-@keyframes scrollX{
-    from{
-        transform: translateX(0);
-        }
-    to{
-        transform: translateX(-100%);
-    }
-} */
+.item{
+    
+    border-radius: 10px;
+    width: 260px;
+    height: 300px;
+    background-position: left;
+    transition: 2s ease-in-out;
+    background: #000; 
+}
+.item1 {
+    background: url(/carousel/full.png);
+    background-size: cover;
+}
+
+.item:hover{ 
+    background-position: right;
+}
+ 

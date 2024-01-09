@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-
+@media print { html, body { height: initial !important; overflow: initial !important; }}
 
 :root {
     

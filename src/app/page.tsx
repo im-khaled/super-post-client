@@ -4,8 +4,11 @@ import styles from "./body.module.css"
 import MaxWithWrap from "./components/MaxWithWrapper/MaxWithWrap"
 import { HiArrowNarrowRight } from "react-icons/hi";
 import { IoMdCheckmark } from "react-icons/io";
+import { RxCross2 } from "react-icons/rx";
 import Navbar from "./components/Header/Navbar";
 import Footer from "./components/Footer/Footer";
+import Link from "next/link";
+import carouselimg from "../../public/carousel/carousel.png"
 
 
 
@@ -19,20 +22,20 @@ export default function Home() {
     <MaxWithWrap>
       <div className={`${styles.bacroungPattern} text-center`}>
         <div className="flex flex-col justify-center items-center pt-20 p-5">
-          <h1 className="text-6xl font-bold w-4/5 text-center p-5">The only LinkedIn content creation tool you’ll ever need</h1>
+          <h1 className="lg:text-6xl md:text-4xl sm:text-2xl sm:font-semibold font-bold w-4/5 text-center p-5">The only LinkedIn content creation tool you’ll ever need</h1>
           <p className="text-xl w-3/6 text-center text-gray-600 py-5">Generate content ideas, high-quality LinkedIn posts, make eye-catching carousels, format for readability, and schedule easily—all in one place!</p> 
-          <button className="p-4 mt-5 bg-main text-white font-semibold rounded-full inline-flex">Get started for free <span className="inline-flex text-2xl ms-2 px-px bg-gray-50 rounded-full text-main"><HiArrowNarrowRight/></span></button>
+          <Link href='/login'><button className="p-4 mt-5 bg-main text-white font-semibold rounded-full inline-flex">Get started for free <span className="inline-flex text-2xl ms-2 px-px bg-gray-50 rounded-full text-main"><HiArrowNarrowRight/></span></button></Link>
         </div>
       </div>
       
     </MaxWithWrap>
     {/* Reviews section started */}
-    <div className={`${styles.review}  h-20  `}>
+    <div className={`${styles.review}  h-20 max-md:hidden `}>
           <div className={`${styles.dashboard} flex justify-center max-md:-bottom-32 mb-10`}>
               <Image className="w-5/6 shadow-md" src={productImg} alt="product demo"></Image>
           </div>
     </div>
-    <div className="text-center  bg-gray-50 mx-8 py-10">
+    <div id="review" className="text-center  bg-gray-50 mx-8 py-10">
             <h2 className="mt-10 text-4xl font-bold ">Loved by Professionals</h2>
             <MaxWithWrap>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 mt-20 text-xl relative">
@@ -70,18 +73,71 @@ export default function Home() {
               
             </MaxWithWrap>   
     </div>
-    {/* post section */}
-    <section className="bg-gray-50">
+    {/* Price Section */}
+    <section className="bg-gray-50" id="price">
         <MaxWithWrap>
-        <div className="post my-20 text-left">
-                        <h1 className="text-5xl font-bold py-8  ">LinkedIn posts on autopilot</h1>
-                        <p className="text-xl leading-8">Experience the convenience of automated post-generation. Share your topic and role, and receive expertly tailored posts every week. Effortless content creation made possible!</p>
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-5 my-20">
+            <div className="post text-left">
+                        <h1 className="text-4xl font-bold py-8  ">Starter</h1>
+                        <h2 className="text-2xl font-semibold">Free</h2>
                         <ul className="text-xl py-5 leading-10">
-                          <li><span className="inline-block text-main"><IoMdCheckmark/></span> Share your details</li>
-                          <li><span className="inline-block text-main"><IoMdCheckmark/></span> Receive fresh and high-quality posts without lifting a finger.</li>
+                          <li><span className="inline-block text-main"><IoMdCheckmark/></span> 5K AI words per month</li>
+                          <li><span className="inline-block text-main"><IoMdCheckmark/></span> Posts Generated for You</li>
+                          <li><span className="inline-block text-main"><IoMdCheckmark/></span> Content Inspiration </li>
+                          <li><span className="inline-block text-main"><IoMdCheckmark/></span> Generate Ideas</li>
+                          <li><span className="inline-block text-red-500"><RxCross2/></span> Post Formatting </li>
+                          <li><span className="inline-block text-red-500"><RxCross2/></span> Post Styling (Bold & Italic)</li>
+                          <li><span className="inline-block text-red-500"><RxCross2/></span> Post Preview</li>
+                          <li><span className="inline-block text-red-500"><RxCross2/></span> Scheduling</li>
                         </ul>
-                        <button className="p-4 mt-5 mb-10 hover:bg-main hover:text-white text-main border border-main font-semibold rounded-full inline-flex">Get started for free </button>
-                  </div>
+                        <Link href='/login'><button className="p-4 mt-5 mb-10 hover:bg-main hover:text-white text-main border border-main font-semibold rounded-full inline-flex">Get started for free </button></Link>
+            </div>
+            <div className="post text-left">
+                        <h1 className="text-4xl font-bold py-8  ">Basic</h1>
+                        <h2 className="text-2xl font-semibold">$10<span className="text-sm font-normal">/Month</span></h2>
+                        <ul className="text-xl py-5 leading-10">
+                          <li><span className="inline-block text-main"><IoMdCheckmark/></span> 50K AI words per month</li>
+                          <li><span className="inline-block text-main"><IoMdCheckmark/></span> Posts Generated for You</li>
+                          <li><span className="inline-block text-main"><IoMdCheckmark/></span> Content Inspiration </li>
+                          <li><span className="inline-block text-main"><IoMdCheckmark/></span> Generate Ideas</li>
+                          <li><span className="inline-block text-main"><IoMdCheckmark/></span> Post Formatting </li>
+                          <li><span className="inline-block text-main"><IoMdCheckmark/></span> Post Styling (Bold & Italic)</li>
+                          <li><span className="inline-block text-main"><IoMdCheckmark/></span> Post Preview</li>
+                          <li><span className="inline-block text-main"><IoMdCheckmark/></span> Scheduling</li>
+                        </ul>
+                        <Link href='/login'><button className="p-4 mt-5 mb-10 hover:bg-main hover:text-white text-main border border-main font-semibold rounded-full inline-flex">Get started for free </button></Link>
+            </div>
+        </div>
+        </MaxWithWrap>
+    </section>
+    {/* post section */}
+    <section  className="bg-gray-50">
+        <MaxWithWrap>
+        <div id="post" className="post my-20 text-left">
+                  <h1 className="text-5xl font-bold py-8  ">LinkedIn posts on autopilot</h1>
+                  <p className="text-xl leading-8">Experience the convenience of automated post-generation. Share your topic and role, and receive expertly tailored posts every week. Effortless content creation made possible!</p>
+                  <ul className="text-xl py-5 leading-10">
+                    <li><span className="inline-block text-main"><IoMdCheckmark/></span> Share your details</li>
+                    <li><span className="inline-block text-main"><IoMdCheckmark/></span> Receive fresh and high-quality posts without lifting a finger.</li>
+                  </ul>
+                  
+                 <Link href='/login'> <button className="p-4 mt-5 mb-10 hover:bg-main hover:text-white text-main border border-main font-semibold rounded-full inline-flex">Get started for free </button></Link>
+          </div>
+        </MaxWithWrap>
+    </section>
+    {/* carousel section started */}
+    <section  id="carousel" className="bg-gray-50 ">
+        <MaxWithWrap>
+        <div id="post" className="post my-20 text-left">
+                  <h1 className="text-5xl font-bold py-8  ">Carousel Maker</h1>
+                  <p className="text-xl leading-8">Experience the convenience of automated post-generation. Share your topic and role, and receive expertly tailored posts every week. Effortless content creation made possible!</p>
+                  <ul className="text-xl py-5 leading-10">
+                    <li><span className="inline-block text-main"><IoMdCheckmark/></span> Share your details</li>
+                    <li><span className="inline-block text-main"><IoMdCheckmark/></span> Receive fresh and high-quality slide without lifting a finger.</li>
+                  </ul>
+                  <Image src={carouselimg} alt="Carousel Image" />
+                 <Link href='/login'> <button className="p-4 mt-5 mb-10 hover:bg-main hover:text-white text-main border border-main font-semibold rounded-full inline-flex">Get started for free </button></Link>
+          </div>
         </MaxWithWrap>
     </section>
     {/* keyword sliding section started */}
@@ -148,7 +204,7 @@ export default function Home() {
         <div className="flex flex-col justify-center items-center pt-20 p-5">
           <h1 className="text-6xl max-sm:text-5xl font-bold w-full text-center p-5">Grow on LinkedIn with Superpost</h1>
           <p className="text-xl w-5/6 text-center text-gray-600 py-5">Grow your personal brand on LinkedIn the simple, powerful, and affordable way with Superpost. Hundreds of professionals and agencies trust Superpost to save them time and help them grow their audience.</p> 
-          <button className="p-4 mt-5 bg-main text-white font-semibold rounded-full inline-flex">Get started for free <span className="inline-flex text-2xl ms-2 px-px bg-gray-50 rounded-full text-main"><HiArrowNarrowRight/></span></button> 
+          <Link href='/login'><button className="p-4 mt-5 bg-main text-white font-semibold rounded-full inline-flex">Get started for free <span className="inline-flex text-2xl ms-2 px-px bg-gray-50 rounded-full text-main"><HiArrowNarrowRight/></span></button> </Link>
           <ul className="text-sm pt-5 pb-16 leading-10 max-sm:block flex justify-center">
              <li><span className="inline-block text-main"><IoMdCheckmark/></span> No credit card required</li>
             <li><span className="inline-block ms-5 text-main"><IoMdCheckmark/></span> 7-day free trial</li>

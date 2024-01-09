@@ -19,7 +19,7 @@ const Card = async () => {
     }
     return (<div>
         <ContentHeader text={header}></ContentHeader>
-        <div className="grid grid-cols-3 gap-5 w-full">
+        <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1  gap-5 w-full">
             {
                 result.map((data: any) => <SingleCard title={data.title} img={data.img} cardDetails={data.cardDetails} key={data._id}></SingleCard>)
             }

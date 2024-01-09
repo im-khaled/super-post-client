@@ -21,16 +21,11 @@ const SignleTemplae = () => {
         <div className='w-full'>
             <ContentHeader text={header}></ContentHeader>
             <Link href='/app/carousel/template'>
-                <div className={`w-64  carousel rounded-box `}>
-                    <div className="carousel-item w-full">
-                        <Image src={img1} className="w-full  " alt="carousel img" />
+                <div className={`overflow-hidden ${style.custom} rounded-box `}>
+                    <div className={` ${style.item} ${style.item1} carousel-item w-full`}>
+                        {/* <Image src={img1} className="w-full  " alt="carousel img" /> */}
                     </div>
-                    <div className="carousel-item w-full">
-                        <Image src={img2} className="w-full " alt="carousel img" />
-                    </div>
-                    <div className="carousel-item w-full">
-                        <Image src={img3} className="w-full" alt="carousel img" />
-                    </div>
+                    
                 </div>
             </Link>
         </div>

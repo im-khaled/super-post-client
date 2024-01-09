@@ -19,7 +19,7 @@ const LoginBtn = () => {
   if (session || user) {
     return (
       <>
-        {session?.user?.email || user?.email} <br />
+        <Link href='/app'><button className="ms-5 px-4 py-1 border rounded-full hover:text-main border-main">App</button> <br /></Link>
         <button className="ms-5 px-4 py-1 border rounded-full hover:text-main border-main" onClick={() => signOutHandle()}>Sign out</button>
       </>
     )

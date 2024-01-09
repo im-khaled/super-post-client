@@ -1,0 +1,43 @@
+
+.tiptap{
+      width: 500px;
+      height: 600px;
+      border: 2px solid black;
+      min-height: 400px;
+}
+
+.tiptap > * + * {
+      margin-top: 0.75em;
+      
+    }
+  
+    .tiptap ul, 
+    .tiptap ol {
+      padding: 0 1rem;
+    }
+  
+    .tiptap h1,
+    .tiptap h2,
+    .tiptap h3,
+    .tiptap h4,
+    .tiptap h5,
+    .tiptap h6 {
+      line-height: 1.1;
+    }
+  
+    .tiptap img {
+      max-width: 100%;
+      height: auto;
+    }
+  
+    .tiptap blockquote {
+      padding-left: 1rem;
+      border-left: 2px solid blue;
+    }
+  
+    .tiptap hr {
+      border: none;
+      border-top: 2px solid gray;
+      margin: 2rem 0;
+    }
+  

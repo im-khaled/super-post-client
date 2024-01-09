@@ -21,7 +21,7 @@
 }
 .dashboard{
     position: absolute;
-    top: -60%;
+    top: -45%;
     left: 5%;
     right: 5%;
     animation-name: rotateAnimation;
@@ -29,17 +29,33 @@
     animation-direction: alternate;
     animation-timeline: scroll(block nearest);
 }
+
 @keyframes rotateAnimation {
     from {
-        transform: scale(50%);
-               
+        transform: scale(60%);
+       
       }
       to {
-
+        
         transform: scale(100%);
+        
       }
     
 }
+ /* @-webkit-keyframes rotateAnimation {
+    from {
+        
+        
+      -webkit-transform: rotateX(100deg);
+               
+      }
+      to {
+        -webkit-transform: rotateX(0deg);
+        
+        
+      }
+    
+} */
 /* slider */
 .sliding:hover{
     animation: slidingRow 30s infinite linear ;

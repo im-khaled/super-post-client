@@ -7,7 +7,7 @@ import user from "../../../../public/user/emonji.png"
 const Insipiration = () => {
 
     return (
-        <div className='grid grid-cols-3 gap-5'>
+        <div className='grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5'>
             <div className="transition-all duration-200  bg-white border border-gray-200 shadow-xs break-inside-avoid-column rounded-xl hover:shadow-md hover:-translate-y-1">
                 <div className="px-4 py-5 space-y-6 sm:p-6">
                     <div className="flex items-center gap-3">

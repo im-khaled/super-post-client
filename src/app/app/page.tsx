@@ -1,3 +1,4 @@
+import Card from "../components/generatePost/Card";
 
 
 const page = () => {
@@ -5,9 +6,8 @@ const page = () => {
     const time = new Date();
     const timeStamp = time.getTime().toString();
 
-    return (<div className="relative mt-24 ms-5 w-full">
-                
-                
+    return (<div className="relative mt-24">
+                <Card></Card>    
         </div>
     );
 };
