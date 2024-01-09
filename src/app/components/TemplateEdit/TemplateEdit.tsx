@@ -131,7 +131,7 @@ const Page = () => {
                     <div className="border flex justify-between items-center rounded-lg p-1 px-2 my-2">
                         
                         <label htmlFor="colorselector">{slide === 2 && bgColor2 || slide === 3 && bgColor3  || slide === 1 && bgColor }</label>
-                        <input type="color" value={slide === 2 && bgColor2 || slide === 3 && bgColor3  || slide === 1 && bgColor} className="w-8 h-8" onChange={e => {
+                        <input type="color" value={slide === 2 && bgColor2 || slide === 3 && bgColor3  || slide === 1 && bgColor || '' } className="w-8 h-8" onChange={e => {
                             if(slide === 2){
                                 setBgColor2(e.target.value);
                             }
@@ -146,7 +146,7 @@ const Page = () => {
                     <p className="mt-5">Text</p>
                     <div className="border flex justify-between items-center rounded-lg py-1 px-2 my-2">
                         <label htmlFor="colorselector">{slide === 2 && textColor2 || slide === 3 && textColor3  || slide === 1 && textColor }</label>
-                        <input type="color" value={slide === 2 && textColor2 || slide === 3 && textColor3  || slide === 1 && textColor } className="w-8 h-8" onChange={e => {
+                        <input type="color" value={slide === 2 && textColor2 || slide === 3 && textColor3  || slide === 1 && textColor || '' } className="w-8 h-8" onChange={e => {
                             if(slide === 2){
                                 setTextColor2(e.target.value);
                             }
