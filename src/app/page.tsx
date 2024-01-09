@@ -22,7 +22,7 @@ export default function Home() {
     <MaxWithWrap>
       <div className={`${styles.bacroungPattern} text-center`}>
         <div className="flex flex-col justify-center items-center pt-20 p-5">
-          <h1 className="lg:text-6xl md:text-4xl sm:text-2xl sm:font-semibold font-bold w-4/5 text-center p-5">The only LinkedIn content creation tool you’ll ever need</h1>
+          <h1 className="lg:text-6xl md:text-4xl sm:text-2xl sm:font-semibold font-bold w-4/5 text-center p-5">The only LinkedIn content creation tool you will ever need</h1>
           <p className="text-xl w-3/6 text-center text-gray-600 py-5">Generate content ideas, high-quality LinkedIn posts, make eye-catching carousels, format for readability, and schedule easily—all in one place!</p> 
           <Link href='/login'><button className="p-4 mt-5 bg-main text-white font-semibold rounded-full inline-flex">Get started for free <span className="inline-flex text-2xl ms-2 px-px bg-gray-50 rounded-full text-main"><HiArrowNarrowRight/></span></button></Link>
         </div>
@@ -30,7 +30,7 @@ export default function Home() {
       
     </MaxWithWrap>
     {/* Reviews section started */}
-    <div className={`${styles.review}  h-20 max-md:hidden `}>
+    <div className={`${styles.review}  h-20 max-md:hidden`}>
           <div className={`${styles.dashboard} flex justify-center max-md:-bottom-32 mb-10`}>
               <Image className="w-5/6 shadow-md" src={productImg} alt="product demo"></Image>
           </div>
@@ -60,7 +60,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="bg-white p-8 shadow-md rounded-xl text-left">
-                    <p>My experience with Superpost has been amazing, I love the app and it is super polished. If you do Linkined business then it's a Green light!</p>
+                    <p>My experience with Superpost has been amazing, I love the app and it is super polished. If you do Linkined business then it&apos;s a Green light!</p>
                     <div className="mt-10 pt-5 flex justify-start absolute max-lg:static bottom-8">
                         <img src="/user/projapoti.jpg" className="w-12 h-12 rounded-full" alt="user" />
                         <div className="ps-4">
