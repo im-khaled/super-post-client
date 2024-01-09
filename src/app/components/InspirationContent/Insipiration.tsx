@@ -25,7 +25,7 @@ const Insipiration = () => {
                     </p>
                     <div className="flex items-center justify-between gap-4">
                         <div className="flex items-center justify-start gap-2">
-                        <img class="w-auto h-5" src="https://ckfwvufqcepsjlnnrzqi.supabase.co/storage/v1/object/public/company//icon-reactions.svg" alt=""/>
+                        <img src="https://ckfwvufqcepsjlnnrzqi.supabase.co/storage/v1/object/public/company//icon-reactions.svg" alt=""/>
                             <span className="text-sm font-medium text-gray-500">1877</span>
                         </div>
                         <div className="flex items-center justify-end gap-2">
@@ -52,7 +52,7 @@ const Insipiration = () => {
                     </p>
                     <div className="flex items-center justify-between gap-4">
                         <div className="flex items-center justify-start gap-2">
-                        <img class="w-auto h-5" src="https://ckfwvufqcepsjlnnrzqi.supabase.co/storage/v1/object/public/company//icon-reactions.svg" alt=""/>
+                        <img  src="https://ckfwvufqcepsjlnnrzqi.supabase.co/storage/v1/object/public/company//icon-reactions.svg" alt=""/>
                             <span className="text-sm font-medium text-gray-500">1877</span>
                         </div>
                         <div className="flex items-center justify-end gap-2">
@@ -79,7 +79,7 @@ const Insipiration = () => {
                     </p>
                     <div className="flex items-center justify-between gap-4">
                         <div className="flex items-center justify-start gap-2">
-                        <img class="w-auto h-5" src="https://ckfwvufqcepsjlnnrzqi.supabase.co/storage/v1/object/public/company//icon-reactions.svg" alt=""/>
+                        <img  src="https://ckfwvufqcepsjlnnrzqi.supabase.co/storage/v1/object/public/company//icon-reactions.svg" alt=""/>
                             <span className="text-sm font-medium text-gray-500">1877</span>
                         </div>
                         <div className="flex items-center justify-end gap-2">
