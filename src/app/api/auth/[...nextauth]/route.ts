@@ -3,7 +3,7 @@ import GitHubProvider from "next-auth/providers/github";
 import providers from 'next-auth/providers/credentials'
 
 
-export const authOptions = {
+const authOptions = {
 
     
     providers:[
