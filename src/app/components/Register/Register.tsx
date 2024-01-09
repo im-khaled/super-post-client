@@ -4,8 +4,10 @@ import { useForm } from 'react-hook-form';
 import {useCreateUserWithEmailAndPassword} from "react-firebase-hooks/auth"
 import { useSession } from "next-auth/react";
 import { redirect, useRouter } from 'next/navigation'
+import { useState } from "react";
 
 const Register = () => {
+    
     const {register, handleSubmit, reset, formState: { errors }}  = useForm();
     const [
         createUserWithEmailAndPassword,
@@ -18,19 +20,22 @@ const Register = () => {
     if(session?.user){
         return redirect('/', )
     }
-      
+    
     const handleSignUp = async (data:any) =>{
+        
         const email = data.email;
         const password = data.password;
         const result = await createUserWithEmailAndPassword(email, password);
-        console.log(result);
+        // console.log(result);
         
         if(result?.user){
+            let id = result.user.uid
+            // console.log(id);
             try {
                 const res = await fetch('/api/register',{
                     method: "POST",
                     headers:{"content-type": "application/json"},
-                    body: JSON.stringify({email})
+                    body: JSON.stringify({email, id})
                 })
                 if(res.ok){
                     console.log("registered")

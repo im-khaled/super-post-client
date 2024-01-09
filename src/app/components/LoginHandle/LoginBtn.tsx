@@ -11,7 +11,7 @@ const LoginBtn = () => {
     const { data: session } = useSession();
     
     const email = session?.user;
-    console.log(session);
+    // console.log(session);
     const signOutHandle=() =>{
       signOut();
       signoutFirebase(auth);

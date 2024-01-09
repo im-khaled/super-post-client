@@ -30,7 +30,7 @@ const DashAside = () => {
                     <li><Link href='/app/content-inspiration'><span className="inline-block me-2 font-semibold"><AiOutlineLineChart /></span>Content Inspiration</Link></li>
                     <li><Link href=''><span className="inline-block me-2 font-semibold"><AiOutlineSolution /></span>Post for You</Link></li>
                     <li><Link href=''><span className="inline-block me-2 font-semibold"><AiOutlineCarryOut /></span>Schedule</Link></li>
-                    <li><Link href=''><span className="inline-block me-2 font-semibold"><AiOutlineSetting /></span>Workspace Setting</Link></li>
+                    <li><Link href='/app/settings'><span className="inline-block me-2 font-semibold"><AiOutlineSetting /></span>Workspace Setting</Link></li>
                     
                 </ul>
                 </div>
