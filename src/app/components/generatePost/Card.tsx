@@ -2,7 +2,7 @@ import ContentHeader from "../DashBoard/ContentHeader";
 import SingleCard from "./SingleCard";
 
 const getData = async () => {
-    const data = await fetch('http://localhost:3000/api/getCard', { cache: "no-store" })
+    const data = await fetch(`${process.env.NEXTAUTH_URL}api/getCard`, { cache: "no-store" })
     const result = await data.json();
     return result;
 
