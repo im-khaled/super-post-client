@@ -16,19 +16,19 @@ export default function Home() {
   
   return (
     
-   <div>
+   <div className="relative">
     <Navbar></Navbar>
     {/* Hero section started */}
-    <MaxWithWrap>
+    
       <div className={`${styles.bacroungPattern} text-center`}>
-        <div className="flex flex-col justify-center items-center pt-20 p-5">
-          <h1 className="lg:text-6xl md:text-4xl sm:text-2xl sm:font-semibold font-bold w-4/5 text-center p-5">The only LinkedIn content creation tool you will ever need</h1>
-          <p className="text-xl w-3/6 text-center text-gray-600 py-5">Generate content ideas, high-quality LinkedIn posts, make eye-catching carousels, format for readability, and schedule easily—all in one place!</p> 
+      <MaxWithWrap>
+        <div className="flex flex-col justify-center items-center pt-24 p-5">
+          <h1 className="lg:text-6xl md:text-4xl sm:text-2xl sm:font-semibold font-bold w-4/5 text-center p-5">Discover the ultimate LinkedIn content creation solution</h1>
+          <p className="text-xl w-3/6 text-center text-gray-600 py-5">Effortlessly generate content ideas, craft polished LinkedIn posts, create captivating carousels, ensure readability with seamless formatting, and schedule with simplicity—all within a single platform!</p> 
           <Link href='/login'><button className="p-4 mt-5 bg-main text-white font-semibold rounded-full inline-flex">Get started for free <span className="inline-flex text-2xl ms-2 px-px bg-gray-50 rounded-full text-main"><HiArrowNarrowRight/></span></button></Link>
         </div>
+        </MaxWithWrap>
       </div>
-      
-    </MaxWithWrap>
     {/* Reviews section started */}
     <div className={`${styles.review}  h-20 max-md:hidden`}>
           <div className={`${styles.dashboard} flex justify-center max-md:-bottom-32 mb-10`}>
@@ -40,7 +40,7 @@ export default function Home() {
             <MaxWithWrap>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 mt-20 text-xl relative">
                   <div className="bg-white p-8 shadow-md rounded-xl text-left">
-                    <p>I love Superpost. The carousel feature is awesome. Life is so much easier! The customer service is outstanding. So personable. Thanks, guys.</p>
+                    <p>I&apos;m thrilled with Superpost! The carousel feature is fantastic, making my life so much easier. The customer service is outstanding—so personable. Big thanks to the team!</p>
                     <div className="mt-10 pt-5 flex justify-start absolute max-lg:static bottom-8">
                         <img src="/user/ant.jpg" className="w-12 h-12 rounded-full" alt="user" />
                         <div className="ps-4">
@@ -50,7 +50,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="bg-white p-8 shadow-md rounded-xl text-left">
-                    <p>I love Superpost, it is by far my favorite LinkedIn app! The templates are super helpful, and the AI works great. With Supergrow, I save at least 4 hours per week.</p>
+                    <p>Superpost has become my absolute favorite LinkedIn app! The templates are incredibly helpful, and the AI functionality works like a charm. Thanks to Superpost.</p>
                     <div className="mt-10  pt-5 flex justify-start ">
                         <img src="/user/emonji.png" className="w-12 h-12 rounded-full" alt="user" />
                         <div className="ps-4">
@@ -60,7 +60,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="bg-white p-8 shadow-md rounded-xl text-left">
-                    <p>My experience with Superpost has been amazing, I love the app and it is super polished. If you do Linkined business then it&apos;s a Green light!</p>
+                    <p>I&apos;ve had an amazing experience with Superpost! The app is impeccably polished, and I absolutely love it. If you&apos;re into LinkedIn business, it&apos;s a definite green light!</p>
                     <div className="mt-10 pt-5 flex justify-start absolute max-lg:static bottom-8">
                         <img src="/user/projapoti.jpg" className="w-12 h-12 rounded-full" alt="user" />
                         <div className="ps-4">
@@ -115,10 +115,10 @@ export default function Home() {
         <MaxWithWrap>
         <div id="post" className="post my-20 text-left">
                   <h1 className="text-5xl font-bold py-8  ">LinkedIn posts on autopilot</h1>
-                  <p className="text-xl leading-8">Experience the convenience of automated post-generation. Share your topic and role, and receive expertly tailored posts every week. Effortless content creation made possible!</p>
+                  <p className="text-xl leading-8">Explore the convenience of automatic post generation. Just provide your topic and role, and receive expertly crafted posts each week. Effortless content creation at your fingertips!</p>
                   <ul className="text-xl py-5 leading-10">
                     <li><span className="inline-block text-main"><IoMdCheckmark/></span> Share your details</li>
-                    <li><span className="inline-block text-main"><IoMdCheckmark/></span> Receive fresh and high-quality posts without lifting a finger.</li>
+                    <li><span className="inline-block text-main"><IoMdCheckmark/></span> Get fresh and high-quality posts effortlessly, no effort required.</li>
                   </ul>
                   
                  <Link href='/login'> <button className="p-4 mt-5 mb-10 hover:bg-main hover:text-white text-main border border-main font-semibold rounded-full inline-flex">Get started for free </button></Link>
@@ -130,10 +130,10 @@ export default function Home() {
         <MaxWithWrap>
         <div id="post" className="post my-20 text-left">
                   <h1 className="text-5xl font-bold py-8  ">Carousel Maker</h1>
-                  <p className="text-xl leading-8">Experience the convenience of automated post-generation. Share your topic and role, and receive expertly tailored posts every week. Effortless content creation made possible!</p>
+                  <p className="text-xl leading-8">Discover the effortless convenience of automated post-generation. Simply share your topic and role, and receive expertly tailored posts every week. Effortless content creation made possible!</p>
                   <ul className="text-xl py-5 leading-10">
                     <li><span className="inline-block text-main"><IoMdCheckmark/></span> Share your details</li>
-                    <li><span className="inline-block text-main"><IoMdCheckmark/></span> Receive fresh and high-quality slide without lifting a finger.</li>
+                    <li><span className="inline-block text-main"><IoMdCheckmark/></span> Receive fresh and high-quality slides effortlessly</li>
                   </ul>
                   <Image src={carouselimg} alt="Carousel Image" />
                  <Link href='/login'> <button className="p-4 mt-5 mb-10 hover:bg-main hover:text-white text-main border border-main font-semibold rounded-full inline-flex">Get started for free </button></Link>
@@ -203,7 +203,7 @@ export default function Home() {
       <div className={` text-center`}>
         <div className="flex flex-col justify-center items-center pt-20 p-5">
           <h1 className="text-6xl max-sm:text-5xl font-bold w-full text-center p-5">Grow on LinkedIn with Superpost</h1>
-          <p className="text-xl w-5/6 text-center text-gray-600 py-5">Grow your personal brand on LinkedIn the simple, powerful, and affordable way with Superpost. Hundreds of professionals and agencies trust Superpost to save them time and help them grow their audience.</p> 
+          <p className="text-xl w-5/6 text-center text-gray-600 py-5">Transform your personal brand on LinkedIn effortlessly, effectively, and affordably with Superpost. Trusted by hundreds of professionals and agencies, Superpost saves time and amplifies audience growth.</p> 
           <Link href='/login'><button className="p-4 mt-5 bg-main text-white font-semibold rounded-full inline-flex">Get started for free <span className="inline-flex text-2xl ms-2 px-px bg-gray-50 rounded-full text-main"><HiArrowNarrowRight/></span></button> </Link>
           <ul className="text-sm pt-5 pb-16 leading-10 max-sm:block flex justify-center">
              <li><span className="inline-block text-main"><IoMdCheckmark/></span> No credit card required</li>

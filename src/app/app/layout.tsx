@@ -7,7 +7,7 @@ export default function AppLayout({
     children: React.ReactNode
   }) {
     return (
-      <section>
+      <section className="relative">
         {/* Include shared UI here e.g. a header or sidebar */}
         <DashNav></DashNav>
         <div className="md:grid md:grid-cols-5  block relative ">

@@ -17,9 +17,10 @@ const Card = async () => {
         title: 'Generate posts with AI',
         details:'Select a template to generate high-quality posts with AI'
     }
-    return (<div>
+    return (<div className="pb-5">
         <ContentHeader text={header}></ContentHeader>
         <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1  gap-5 w-full">
+            
             {
                 result.map((data: any) => <SingleCard title={data.title} img={data.img} cardDetails={data.cardDetails} key={data._id}></SingleCard>)
             }

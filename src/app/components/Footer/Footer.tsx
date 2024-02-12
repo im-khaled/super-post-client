@@ -48,7 +48,7 @@ const Footer = () => {
               <hr />
               <div className="py-5 text-center">
                     <p className="font-semibold text-sm">Copyright © 2023 Superpost. All rights reserved.</p>
-                    <p className="py-2 text-gray-700 text-sm">Disclaimer: Superpost is not endorsed by or affiliated with the LinkedIn Corporation, registered in the U.S. and other countries. LinkedIn is a trademark of the LinkedIn Corporation.</p>
+                    <p className="py-2 text-gray-700 text-sm">Disclaimer: Superpost is an independent entity and is not endorsed by or affiliated with the LinkedIn Corporation, which is registered in the U.S. and other countries. LinkedIn is a trademark owned by the LinkedIn Corporation. Additionally, please note that Superpost is a mock website created for practice purposes.</p>
               </div>
             </MaxWithWrap>   
     </div>

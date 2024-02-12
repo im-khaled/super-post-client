@@ -1,45 +1,105 @@
 "use client"
-import { ReactComponentElement, useEffect, useRef, useState } from "react";
+import { ReactComponentElement, useCallback, useEffect, useRef, useState } from "react";
 import { useReactToPrint } from 'react-to-print';
 import img from "../../../../public/fabicon_super.ico"
 import Image from "next/image";
-import style from "./Template.module.css";
+import { toPng } from "html-to-image";
+import htmlparse from "html-react-parser"
+
+
 
 const Page = () => {
     // slide control state 
+    const [img1, setImg1] = useState('');
+    const [img2, setImg2] = useState('');
+    const [img3, setImg3] = useState('');
+    const [previewe, setPreviewe] = useState(false);
+    const [loading, setloading] = useState(false);
+    const [previewControl, setPreviewControl] = useState(false);
     const [slide, setSlide] = useState(1);
-    const combinedRef:any = useRef([])
-    const slideOneRef:any = useRef();
-     const slideTwoRef:any = useRef();
-    // const slideThreeRef:any = useRef();
+    const combinedRef:any = useRef([]);
+    const newdiv:any = useRef()
+    
+    const html = `<div style={{height: 300 + "vh"}} className="w-full pr-5">
+            <img class="w-full" src=${img1}></img>
+            <img class="w-full" src=${img2}></img>
+            <img class="w-full" src=${img3}></img>
+            </div>`;
+    
+
+    const createPdf = useReactToPrint({
+        content:() => newdiv.current,
+    })
     
     const pushRef = (el:any) => combinedRef.current.push(el);
     
-    // useEffect(()=>{
-    //     combinedRef.current = {slideOneRef}
-    // // },[])
     
+    //Html to image
+    const filter = (node: HTMLElement) => {
+        const exclusionClasses = ['remove-me', 'secret-div'];
+        return !exclusionClasses.some((classname) => node.classList?.contains(classname));
+      }
+      
+    
+    //HTML to pdf
+      
+        const htmlToPng = useCallback(() => {
+            setloading(true);
+            combinedRef.current.map((slide:any, id:number) =>{
+                toPng(slide)
+                .then(dataUrl =>{
+                    // const link = document.createElement('a')
+                    // link.download = 'my-slide.png'
+                    // link.href = dataUrl
+                    // link.click()
+                    if(id == 0){
+                        setImg1(dataUrl)
+                    }
+                    if(id == 1){
+                        setImg2(dataUrl)
+                    }
+                    if(id == 2){
+                        setImg3(dataUrl)
+                        setPreviewControl(true)
+                        setloading(false)
+                    }
+                    if(id = 3){
+                        return
+                    }
+                })
+                .catch((err) => {
+                    console.log(err)
+                  })
+            })
+      
+        }, [combinedRef.current[slide-1]])
 
-    const createPDF = useReactToPrint({
-        content: () => combinedRef.current[slide-1],
-        
-        
-    })
+        const preview = () => {
+            setPreviewe(!previewe);
+        }
+        const close = () =>{
+            setImg1('')
+            setImg2('')
+            setImg3('')
+            setPreviewe(!previewe);
+            setPreviewControl(false)
+        }
+
     // slide 1
-    const [heading, setHeading] = useState("Brain's Learning Process");
-    const [hook, setHook] = useState("The brain learns three steps: information, meaning, and emotion. Combine all three for effective learning.");
+    const [heading, setHeading] = useState("AI learning process");
+    const [hook, setHook] = useState("The AI learning process involves three key steps: data collection, preprocessing, and training. Combine all three for effective learning.");
     const [textColor, setTextColor] = useState("#fffafa");
     const [bgColor, setBgColor] = useState("#1148ee");
     const [font, setFont] = useState('');
     // for slide 3
     const [heading2, setHeading2] = useState("Three Steps");
-    const [hook2, setHook2] = useState("The brain learns three steps: information, meaning, and emotion. Combine all three for effective learning.");
+    const [hook2, setHook2] = useState("The AI learns three steps: data collection, preprocessing, and training. Combine all three for effective learning.");
     const [textColor2, setTextColor2] = useState("#fffafa");
     const [bgColor2, setBgColor2] = useState("#ff9800");
     const [font2, setFont2] = useState('');
     // for slide 3
-    const [heading3, setHeading3] = useState("Power of Visualization");
-    const [hook3, setHook3] = useState("Visualizing information makes it more memorable. Make your visualization vivid and engaging.");
+    const [heading3, setHeading3] = useState("Power of AI");
+    const [hook3, setHook3] = useState("Throughout this process, AI systems continuously learn and improve from feedback, new data, and interactions with users, enabling them to become more accurate and effective over time.");
     const [textColor3, setTextColor3] = useState("#fffafa");
     const [bgColor3, setBgColor3] = useState("#ef4444");
     const [font3, setFont3] = useState('');
@@ -50,7 +110,8 @@ const Page = () => {
     }
     
     return (
-        <div className={`mt-24 w-full px-5 `}>
+        <>
+        <div className={`mt-24 w-full px-5`}>
             
             <div className="md:flex w-full  justify-center my-5">
                 <div className="w-64 border p-3">
@@ -176,9 +237,10 @@ const Page = () => {
                             <option value="Bona Nova">Bona Nova</option>
                         </select>
                     </div>
-                    <button onClick={createPDF} className="px-4 py-2 mt-4 rounded-full w-full text-white bg-main hover:bg-blue-500">Save</button>
+                    <button onClick={htmlToPng} disabled={false} className="px-4 py-2 mt-4 rounded-full w-full text-white bg-main hover:bg-blue-500">Save</button>
+                    <button onClick={preview} disabled={previewControl? false:true} className={previewControl?"px-4 py-2 mt-4 rounded-full w-full text-white bg-main hover:bg-blue-500":"px-4 py-2 mt-4 rounded-full w-full text-white bg-gray-300 "}>{loading?"Please Wait...":"Preview"}</button>
                 </div>
-                <div ref={slideOneRef}  className={`carousel w-2/3 max-md:w-full h-[25rem]`}>
+                <div className={`carousel w-2/3 max-md:w-full h-[30rem]`}>
                     <div id="item1" className="carousel-item max-md:block w-full">
                         <div className="flex-1 w-1/2 max-md:w-full min-w-0 pt-3  pb-6 pl-3 pr-6 shrink-0">
                             <div className="flex items-center group justify-between gap-4">
@@ -188,7 +250,7 @@ const Page = () => {
                                 <div className="mt-5 space-y-6"><div className="mt-5 space-y-6"><div>
                                     <label className="block text-sm font-medium leading-6 text-gray-900">Title</label>
                                     <div className="mt-1.5">
-                                        <input type="text"  onBlur={e => setHeading(e.target.value)} id="" placeholder="" className="block w-full px-3 py-2 text-gray-900 border-0 shadow-sm rounded-xl ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6 caret-blue-500" defaultValue={`Brain's Learning Process`} />
+                                        <input type="text"  onBlur={e => setHeading(e.target.value)} id="" placeholder="" className="block w-full px-3 py-2 text-gray-900 border-0 shadow-sm rounded-xl ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6 caret-blue-500" defaultValue={`AI Learning Process`} />
                                     </div>
                                 </div>
                             </div>
@@ -196,14 +258,14 @@ const Page = () => {
                                     <div>
                                         <label className="block text-sm font-medium leading-6 text-gray-900">Description</label>
                                         <div className="mt-1.5">
-                                            <textarea onBlur={e => setHook(e.target.value)}  cols={20} rows={8} className="block w-full px-3 py-2 text-gray-900 border-0 shadow-sm rounded-xl ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6 caret-blue-500" defaultValue="The brain learns three steps: information, meaning, and emotion. Combine all three for effective learning." />
+                                            <textarea onBlur={e => setHook(e.target.value)}  cols={20} rows={8} className="block w-full px-3 py-2 text-gray-900 border-0 shadow-sm rounded-xl ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6 caret-blue-500" defaultValue="The AI learning process involves three key steps: data collection, preprocessing, and training. Combine all three for effective learning." />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="w-1/2 max-md:w-full h-auto m-2 min-h-80 relative bg-red-500 p-5 caroselBody " ref={pushRef}>
+                        <div className="w-1/2 max-md:w-full h-auto m-2 min-h-80 relative bg-red-500 p-5 caroselBody " ref={pushRef} >
                             <h1 className= "title text-4xl font-bold">{`${heading}`}</h1>
                             <h3 className="hook text-lg font-semibold py-5">{`${hook}`}</h3>
                             <div className="absolute inset-x-0  bottom-5 border bg-white rounded-full mx-5 flex justify-center items-center">
@@ -215,9 +277,10 @@ const Page = () => {
                                             <p className=" text-[12px] leading-[18px]">@im_KhaledM</p>
                                         </div>
                                     </div>
-                                        <div className="py-[8px] px-[24px] rounded-full flex items-center" >
-                                            <p className=" swipe text-[14px] leading-[20px] font-semibold bg-red-500 text-white py-2 rounded-full px-5">Swipe</p>
+                                        <div className="py-[8px] pe-[10px] ps-5 rounded-full flex items-center content-between" >
+                                            <p className=" swipe text-[14px] leading-[20px] font-semibold bg-red-500 text-white py-2 rounded-full px-4">Swipe</p>
                                         </div>
+                                       
                                 </div>
     
                             </div>
@@ -240,7 +303,7 @@ const Page = () => {
                         </div>
                     </div>
                     <div id="item2" className="carousel-item max-md:block w-full">
-                        <div className="md:flex-1 md:w-1/2 w-full block min-w-0 pt-3 pb-6 pl-3 pr-6 shrink-0">
+                        <div className="md:flex-1 md:w-1/2 w-full block min-w-0 pt-3 pb-6 pl-3 pr-6 shrink-0 ">
                             <div className="flex items-center  justify-between gap-4">
                                 <p className="flex-1 text-sm font-semibold tracking-widest text-gray-500">SLIDE 2</p>
                                 </div>
@@ -255,14 +318,14 @@ const Page = () => {
                                     <div>
                                         <label className="block text-sm font-medium leading-6 text-gray-900">Description</label>
                                         <div className="mt-1.5">
-                                            <textarea onBlur={e => setHook2(e.target.value)} cols={20} rows={8}  id="" placeholder="" className="block w-full px-3 py-2 text-gray-900 border-0 shadow-sm rounded-xl ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6 caret-blue-500" defaultValue="The brain learns three steps: information, meaning, and emotion. Combine all three for effective learning." />
+                                            <textarea onBlur={e => setHook2(e.target.value)} cols={20} rows={8}  id="" placeholder="" className="block w-full px-3 py-2 text-gray-900 border-0 shadow-sm rounded-xl ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6 caret-blue-500" defaultValue="The AI learns three steps: data collection, preprocessing, and training. Combine all three for effective learning." />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="md:w-1/2 h-auto w-full block m-2 min-h-80 relative bg-red-500 p-5 caroselBody" ref={pushRef}>
+                        <div className="md:w-1/2 h-auto w-full block m-2 min-h-80 relative bg-red-500 p-5 caroselBody" ref={pushRef} >
                             <h1 className= "title text-3xl font-bold">{`${heading2}`}</h1>
                             <h3 className="hook text-lg font-semibold py-5">{`${hook2}`}</h3>
                             <div className="absolute inset-x-0  bottom-5 border bg-white rounded-full mx-5 flex justify-center items-center">
@@ -274,8 +337,9 @@ const Page = () => {
                                             <p className=" text-[12px] leading-[18px]">@im_KhaledM</p>
                                         </div>
                                     </div>
-                                        <div className="py-[8px] px-[24px] rounded-full flex items-center" >
+                                        <div className="py-[8px] pe-[10px] ps-5 rounded-full flex items-center" >
                                             <p className=" swipe text-[14px] leading-[20px] font-semibold bg-red-500 text-white py-2 rounded-full px-5">Swipe</p>
+                                           
                                         </div>
                                 </div>
                                
@@ -305,7 +369,7 @@ const Page = () => {
                                 <div className="mt-5 space-y-6"><div className="mt-5 space-y-6"><div>
                                     <label className="block text-sm font-medium leading-6 text-gray-900">Title</label>
                                     <div className="mt-1.5">
-                                        <input type="text"  onBlur={e => setHeading3(e.target.value)} id="" placeholder="" className="block w-full px-3 py-2 text-gray-900 border-0 shadow-sm rounded-xl ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6 caret-blue-500" defaultValue={`Power of Visualization`} />
+                                        <input type="text"  onBlur={e => setHeading3(e.target.value)} id="" placeholder="" className="block w-full px-3 py-2 text-gray-900 border-0 shadow-sm rounded-xl ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6 caret-blue-500" defaultValue={`Power of AI`} />
                                     </div>
                                 </div>
                             </div>
@@ -313,14 +377,14 @@ const Page = () => {
                                     <div>
                                         <label className="block text-sm font-medium leading-6 text-gray-900">Description</label>
                                         <div className="mt-1.5">
-                                            <textarea onBlur={e => setHook3(e.target.value)} cols={20} rows={8} id="" placeholder="" className="block w-full px-3 py-2 text-gray-900 border-0 shadow-sm rounded-xl ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6 caret-blue-500" defaultValue="Visualizing information makes it more memorable. Make your visualization vivid and engaging." />
+                                            <textarea onBlur={e => setHook3(e.target.value)} cols={20} rows={8} id="" placeholder="" className="block w-full px-3 py-2 text-gray-900 border-0 shadow-sm rounded-xl ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6 caret-blue-500" defaultValue="Throughout this process, AI systems continuously learn and improve from feedback, new data, and interactions with users, enabling them to become more accurate and effective over time." />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="w-1/2 max-md:w-full h-auto m-2 min-h-80 relative bg-red-500 p-5 caroselBody" ref={pushRef}>
+                        <div className="w-1/2 max-md:w-full h-auto m-2 min-h-80 relative bg-red-500 p-5 caroselBody" ref={pushRef} >
                             <h1 className= "title text-3xl font-bold">{`${heading3}`}</h1>
                             <h3 className="hook text-lg font-semibold py-5">{`${hook3}`}</h3>
                             <div className="absolute inset-x-0  bottom-5 border bg-white rounded-full mx-5 flex justify-center items-center">
@@ -332,7 +396,7 @@ const Page = () => {
                                             <p className=" text-[12px] leading-[18px]">@im_KhaledM</p>
                                         </div>
                                     </div>
-                                        <div className="py-[8px] px-[24px] rounded-full flex items-center" >
+                                        <div className="py-[8px] pe-[10px] ps-5 rounded-full flex items-center" >
                                             <p className=" swipe text-[14px] leading-[20px] font-semibold bg-red-500 text-white py-2 rounded-full px-5">Swipe</p>
                                         </div>
                                 </div>
@@ -367,8 +431,24 @@ const Page = () => {
 
             </div>
             
+            
         </div>
-
+            <div className={previewe? 'absolute bg-[rgba(0,0,0,0.5)] top-0 left-0 bottom-0 z-50 content-center w-full h-[100vh]':'hidden'} >
+                
+               <div className="flex items-center justify-center mt-24">
+                <div className="bg-white rounded-md" style={{overflow:"scroll", height:500 +"px"}}>
+                    {html &&<>
+                    <div ref={newdiv}>{htmlparse(html)}</div>
+                    </> }
+                    <div className="flex justify-evenly mb-5">
+                    <button onClick={createPdf} className="px-4 py-2 mt-4 mr-5 w-1/3 text-white bg-main hover:bg-blue-500">Save as PDF</button>
+                    <button onClick={close} className="px-4 py-2 mt-4 w-1/3 text-white bg-main hover:bg-blue-500">Close</button>
+                    </div>
+                </div>
+                </div>
+                
+            </div>
+        </>
     );
 };
 

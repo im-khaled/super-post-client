@@ -19,6 +19,9 @@
     "@tiptap/starter-kit": "^2.1.13",
     "firebase": "^10.7.1",
     "html-react-parser": "^5.0.11",
+    "html-to-image": "^1.11.11",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
     "mongoose": "^8.0.3",
     "next": "14.0.4",
     "next-auth": "^4.24.5",
@@ -28,6 +31,7 @@
     "react-firebase-hooks": "^5.1.1",
     "react-hook-form": "^7.49.2",
     "react-icons": "^4.12.0",
+    "react-pdf": "^7.7.0",
     "react-to-print": "^2.14.15"
   },
   "devDependencies": {

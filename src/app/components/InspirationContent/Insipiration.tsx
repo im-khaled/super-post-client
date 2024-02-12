@@ -21,7 +21,7 @@ const Insipiration = () => {
                         </div>
                     </div>
                     <p className="text-base font-normal text-gray-900">
-                        <textarea readOnly value={'I am pleased to announce that I am starting a new position as Sales Director Specialist Bu Cybersecurity Bouygues Telecom Entreprises Activate to view larger image'} rows={10} className="resize-none block w-full h-full p-0 text-gray-900 border-none appearance-none resize-y placeholder:text-gray-500 focus:ring-0 caret-blue-500 focus:outline-none"/>  
+                        <textarea readOnly value={`I'm delighted to announce that I've begun a new role as Sales Director Specialist at Bouygues Telecom Entreprises, focusing on cybersecurity.`} rows={10} className="resize-none block w-full h-full p-0 text-gray-900 border-none appearance-none resize-y placeholder:text-gray-500 focus:ring-0 caret-blue-500 focus:outline-none"/>  
                     </p>
                     <div className="flex items-center justify-between gap-4">
                         <div className="flex items-center justify-start gap-2">
@@ -48,7 +48,7 @@ const Insipiration = () => {
                         </div>
                     </div>
                     <p className="text-base font-normal text-gray-900">
-                        <textarea readOnly value={'I am pleased to announce that I am starting a new position as Sales Director Specialist Bu Cybersecurity Bouygues Telecom Entreprises Activate to view larger image'} rows={10} className="resize-none block w-full h-full p-0 text-gray-900 border-none appearance-none resize-y placeholder:text-gray-500 focus:ring-0 caret-blue-500 focus:outline-none"/>  
+                        <textarea readOnly value={`I'm delighted to announce that I've begun a new role as Sales Director Specialist at Bouygues Telecom Entreprises, focusing on cybersecurity.`} rows={10} className="resize-none block w-full h-full p-0 text-gray-900 border-none appearance-none resize-y placeholder:text-gray-500 focus:ring-0 caret-blue-500 focus:outline-none"/>  
                     </p>
                     <div className="flex items-center justify-between gap-4">
                         <div className="flex items-center justify-start gap-2">
@@ -75,7 +75,7 @@ const Insipiration = () => {
                         </div>
                     </div>
                     <p className="text-base font-normal text-gray-900">
-                        <textarea readOnly value={'I am pleased to announce that I am starting a new position as Sales Director Specialist Bu Cybersecurity Bouygues Telecom Entreprises Activate to view larger image'} rows={10} className="resize-none block w-full h-full p-0 text-gray-900 border-none appearance-none resize-y placeholder:text-gray-500 focus:ring-0 caret-blue-500 focus:outline-none"/>  
+                        <textarea readOnly value={`I'm delighted to announce that I've begun a new role as Sales Director Specialist at Bouygues Telecom Entreprises, focusing on cybersecurity.`} rows={10} className="resize-none block w-full h-full p-0 text-gray-900 border-none appearance-none resize-y placeholder:text-gray-500 focus:ring-0 caret-blue-500 focus:outline-none"/>  
                     </p>
                     <div className="flex items-center justify-between gap-4">
                         <div className="flex items-center justify-start gap-2">

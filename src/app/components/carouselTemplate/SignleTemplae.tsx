@@ -28,6 +28,8 @@ const SignleTemplae = () => {
                     
                 </div>
             </Link>
+
+             
         </div>
     );
 };
