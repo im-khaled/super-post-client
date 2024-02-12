@@ -5,6 +5,7 @@ import img from "../../../../public/fabicon_super.ico"
 import Image from "next/image";
 import { toPng } from "html-to-image";
 import htmlparse from "html-react-parser"
+import style from "./Template.module.css"
 
 
 
@@ -20,7 +21,7 @@ const Page = () => {
     const combinedRef:any = useRef([]);
     const newdiv:any = useRef()
     
-    const html = `<div style={{height: 300 + "vh"}} className="w-full pr-5">
+    const html = `<div className="w-full pr-5 h-[300+vh]">
             <img class="w-full" src=${img1}></img>
             <img class="w-full" src=${img2}></img>
             <img class="w-full" src=${img3}></img>
@@ -62,13 +63,11 @@ const Page = () => {
                         setImg3(dataUrl)
                         setPreviewControl(true)
                         setloading(false)
-                    }
-                    if(id = 3){
                         return
                     }
                 })
                 .catch((err) => {
-                    console.log(err)
+                    
                   })
             })
       
@@ -271,7 +270,7 @@ const Page = () => {
                             <div className="absolute inset-x-0  bottom-5 border bg-white rounded-full mx-5 flex justify-center items-center">
                                 <div className=" flex px-[10px] py-[8px] justify-between rounded-full" >
                                     <div className="flex gap-[8px] items-center">
-                                        <Image src={img} className="object-cover w-[40px] h-[40px] border rounded-full img" alt="image" />
+                                        <Image src={img} className="object-cover w-[40px] h-[40px] border bg-white rounded-full img" alt="image" />
                                         <div className=" bg-white flex flex-col" >
                                             <p className=" text-[16px] leading-[24px] font-semibold whitespace-nowrap" >Khaled Mahmud</p>
                                             <p className=" text-[12px] leading-[18px]">@im_KhaledM</p>
@@ -286,9 +285,6 @@ const Page = () => {
                             </div>
                             {/* style */}
                             <style jsx>{`
-                                @import url('https://fonts.googleapis.com/css2?family=Inter&family=Josefin+Sans&family=Lobster&family=Montserrat&family=Poppins:wght@400;700&family=Roboto&display=swap');
-                                @import url('https://fonts.googleapis.com/css2?family=Inter&family=Josefin+Sans&family=Lobster&family=Montserrat&family=Poppins&family=Roboto&display=swap');
-                                @import url('https://fonts.googleapis.com/css2?family=Bona+Nova:ital@1&family=Inter&family=Josefin+Sans&family=Lobster&family=Montserrat&family=Poppins:ital@0;1&family=Roboto&display=swap');
 
                                 .caroselBody , .swipe{
                                     background-color: ${bgColor};
@@ -331,7 +327,7 @@ const Page = () => {
                             <div className="absolute inset-x-0  bottom-5 border bg-white rounded-full mx-5 flex justify-center items-center">
                                 <div className=" flex px-[10px] py-[8px] justify-between rounded-full" >
                                     <div className="flex gap-[8px] items-center">
-                                        <Image src={img} className="object-cover w-[40px] h-[40px] border rounded-full img" alt="image" />
+                                        <Image src={img} className="object-cover w-[40px] h-[40px] bg-white border rounded-full img" alt="image" />
                                         <div className=" bg-white flex flex-col" >
                                             <p className=" text-[16px] leading-[24px] font-semibold whitespace-nowrap" >Khaled Mahmud</p>
                                             <p className=" text-[12px] leading-[18px]">@im_KhaledM</p>
@@ -345,9 +341,7 @@ const Page = () => {
                                
                             </div>
                             <style jsx>{`
-                                @import url('https://fonts.googleapis.com/css2?family=Inter&family=Josefin+Sans&family=Lobster&family=Montserrat&family=Poppins:wght@400;700&family=Roboto&display=swap');
-                                @import url('https://fonts.googleapis.com/css2?family=Inter&family=Josefin+Sans&family=Lobster&family=Montserrat&family=Poppins&family=Roboto&display=swap');
-                                @import url('https://fonts.googleapis.com/css2?family=Bona+Nova:ital@1&family=Inter&family=Josefin+Sans&family=Lobster&family=Montserrat&family=Poppins:ital@0;1&family=Roboto&display=swap');
+                                
 
                                 .caroselBody, .swipe{
                                     background-color: ${bgColor2};
@@ -390,7 +384,7 @@ const Page = () => {
                             <div className="absolute inset-x-0  bottom-5 border bg-white rounded-full mx-5 flex justify-center items-center">
                                 <div className=" flex px-[10px] py-[8px] justify-between rounded-full" >
                                     <div className="flex gap-[8px] items-center">
-                                        <Image src={img} className="object-cover w-[40px] h-[40px] border rounded-full img" alt="image" />
+                                        <Image src={img} className="object-cover w-[40px] h-[40px] bg-white border rounded-full img" alt="image" />
                                         <div className=" bg-white flex flex-col" >
                                             <p className=" text-[16px] leading-[24px] font-semibold whitespace-nowrap" >Khaled Mahmud</p>
                                             <p className=" text-[12px] leading-[18px]">@im_KhaledM</p>
@@ -404,10 +398,6 @@ const Page = () => {
                             </div>
                             {/* style */}
                             <style jsx>{`
-                                @import url('https://fonts.googleapis.com/css2?family=Inter&family=Josefin+Sans&family=Lobster&family=Montserrat&family=Poppins:wght@400;700&family=Roboto&display=swap');
-                                @import url('https://fonts.googleapis.com/css2?family=Inter&family=Josefin+Sans&family=Lobster&family=Montserrat&family=Poppins&family=Roboto&display=swap');
-                                @import url('https://fonts.googleapis.com/css2?family=Bona+Nova:ital@1&family=Inter&family=Josefin+Sans&family=Lobster&family=Montserrat&family=Poppins:ital@0;1&family=Roboto&display=swap');
-
                                 .caroselBody , .swipe{
                                     background-color: ${bgColor3};
                                 }

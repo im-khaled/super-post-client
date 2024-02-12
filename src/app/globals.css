@@ -4,6 +4,7 @@
 
 @media print { html, body { height: initial !important; overflow: initial !important; }}
 
+
 :root {
     
   --foreground-rgb: 0, 0, 0;
