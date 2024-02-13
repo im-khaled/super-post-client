@@ -1,6 +1,7 @@
 .bacroungPattern{
     background-image:url("../../public/backround_pattern.png");
-    background-repeat: no-repeat;
+    background-repeat:no-repeat;
+    background-size: cover;
     width: 100%;
     height: 80vh;
 }
