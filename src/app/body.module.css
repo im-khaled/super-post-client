@@ -23,23 +23,25 @@
 }
 .dashboard{
     position: absolute;
-    top: -45%;
+    top: -40%;
     left: 5%;
     right: 5%;
-    animation-name: rotateAnimation;
+    animation-name: rotateAnimation ;
     animation-duration: 1ms; /* Firefox requires this to apply the animation */
-    animation-direction: alternate;
-    animation-timeline: scroll(block nearest);
+    animation-direction: linear;
+    animation-timeline: view();
+    animation-range: entry;
+    
 }
 
 @keyframes rotateAnimation {
     from {
-        transform: scale(60%);
+        transform: scale(-0.5) rotateX(5deg) ;
        
       }
       to {
         
-        transform: scale(100%);
+        transform: scale(1) rotateX(0deg);
         
       }
     
@@ -47,7 +49,7 @@
  /* @-webkit-keyframes rotateAnimation {
     from {
         
-        
+
       -webkit-transform: rotateX(100deg);
                
       }
