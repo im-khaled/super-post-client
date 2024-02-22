@@ -24,7 +24,7 @@ import OpenAI from 'openai';
 
 
 const MenuBar = ({editor}:any) => {
-  const [selected, setText] = useState('')
+  // const [selected, setText] = useState('')
   const [warning, setWarning] = useState('')
   const [AIText, setAIText] = useState('')
   const [loading, setLoading] = useState(false);
@@ -40,12 +40,12 @@ const MenuBar = ({editor}:any) => {
 
   
   const handle = async()=>{
-    setText(text)
+
     setAIText('')
-    if(!selected){
+    if(!text){
       setWarning('Please select a topic')
     }
-    if(selected){
+    else{
       setWarning('')
       setLoading(true);
       const openai: any = new OpenAI({
@@ -57,7 +57,7 @@ const MenuBar = ({editor}:any) => {
         messages: [
             {
                 "role": "user",
-                "content": `write 5 sentence about ${selected} without numbering the sentence`
+                "content": `write 5 sentence about ${text} without numbering the sentence`
             },
 
         ],
@@ -74,7 +74,6 @@ const MenuBar = ({editor}:any) => {
 
   const handleColse = () => {
     setPreview(false);
-    setText('')
   }
   const setClipBoard = async() => {
     if(AIText){
