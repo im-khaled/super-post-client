@@ -32,7 +32,7 @@ export default function Home() {
     {/* Reviews section started */}
     <div className={`${styles.review}  h-20 max-md:hidden`}>
           <div className={`${styles.dashboard} flex justify-center max-md:-bottom-32 mb-10`}>
-              <Image className="w-5/6 shadow-md" src={productImg} alt="product demo"></Image>
+              <Image className="w-5/6 shadow-md rounded-2xl" src={productImg} alt="product demo"></Image>
           </div>
     </div>
     <div id="review" className="text-center  bg-gray-50 mx-8 py-10">
@@ -113,7 +113,8 @@ export default function Home() {
     {/* post section */}
     <section  className="bg-gray-50">
         <MaxWithWrap>
-        <div id="post" className="post my-20 text-left">
+        <div className="lg:flex lg:justify-between">
+          <div id="post" className="post my-20 text-left">
                   <h1 className="text-5xl font-bold py-8  ">LinkedIn posts on autopilot</h1>
                   <p className="text-xl leading-8">Explore the convenience of automatic post generation. Just provide your topic and role, and receive expertly crafted posts each week. Effortless content creation at your fingertips!</p>
                   <ul className="text-xl py-5 leading-10">
@@ -122,9 +123,14 @@ export default function Home() {
                   </ul>
                   
                  <Link href='/login'> <button className="p-4 mt-5 mb-10 hover:bg-main hover:text-white text-main border border-main font-semibold rounded-full inline-flex">Get started for free </button></Link>
-          </div>
+            </div>
+            <div className="mt-5 pb-10 lg:mb-20 lg:pb-0 lg:ms-5 lg:mt-28">
+              <iframe className="rounded-md w-[620px] h-[380px] max-sm:w-[360px] max-sm:h-[220px]" src="https://drive.google.com/file/d/1GAtI3acyxqoKnzuxt80tciK4Vn19Ez9U/preview"  allow="autoplay; fullscreen" allowFullScreen></iframe>
+            </div>
+        </div>
         </MaxWithWrap>
     </section>
+    
     {/* carousel section started */}
     <section  id="carousel" className="bg-gray-50 ">
         <MaxWithWrap>
