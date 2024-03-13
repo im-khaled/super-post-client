@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import Navbar from './components/Header/Navbar'
-import Footer from './components/Footer/Footer'
+import { Analytics } from "@vercel/analytics/react"
 import { getServerSession } from 'next-auth'
 import SessionProvider from "./components/SessionProvider"
 
@@ -26,6 +25,7 @@ export default async function  RootLayout({
         <body className={`${inter.className} relative`}>
         {/* <Navbar></Navbar> */}
           {children}
+          <Analytics/>
         {/* <Footer></Footer> */}
         </body>
       </SessionProvider>
